@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nexus Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-box">
+    <img src="images/Nexus.png" alt="Nexus Logo">
+    <h2>NEXUS PORTAL</h2>
+    <p class="tagline">Enter the world of Cyber Security resources</p>
+
+    <form id="loginForm">
+      <input type="text" name="email" placeholder="Enter Nexus ID or Email" required><br>
+      <input type="password" name="password" placeholder="Enter Access Key" required><br>
+      <button type="submit">Access Nexus</button>
+    </form>
+
+    <div class="footer">
+      <p>© 2025 Nexus Cyber Society | For authorized members only</p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = form.email.value;
+      const password = form.password.value;
+
+      // Store locally for demo only
+      localStorage.setItem('demo_email', email);
+      localStorage.setItem('demo_password', password);
+      console.log('Captured (demo only):', email, password);
+
+      // Redirect to thank you page
+      window.location.href = 'thankyou.html';
+    });
+  </script>
+</body>
+</html>
