@@ -3,6 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <title>Nexus Portal</title>
+<!-- Firebase App (required) -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<!-- Firestore -->
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+<script>
+  // Your Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyDCeZOVuYBXrx_sSgeSoy7xk1-n5FMkjPQ",
+    authDomain: "nexus-portal-fe6e7.firebaseapp.com",
+    projectId: "nexus-portal-fe6e7",
+    storageBucket: "nexus-portal-fe6e7.firebasestorage.app",
+    messagingSenderId: "933861023106",
+    appId: "1:933861023106:web:381d05d601805270a1039b"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
